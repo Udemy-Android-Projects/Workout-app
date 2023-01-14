@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ripple effect has to have a color attribute. C4C4C4-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#E37654">
+
+    <item android:id="@android:id/mask">
+        <!-- Shape and color of the background that is to be masked -->
+        <shape android:shape="oval">
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/circular_border"/>
+</ripple>
