@@ -52,8 +52,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             customBackButton()
         }
         setUpRestView(restTime)
-
-
         setUpExerciseStatusRecyclerView()
 
     }
@@ -122,6 +120,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             //What should happen at the end
             override fun onFinish() {
                 currentExercise++
+                //When the rest timer is over the next exercise is automatically selected
                 exerciseList!![currentExercise].setIsSelected(true)
                 //To change recyclerView appearance
                 exerciseAdapter!!.notifyDataSetChanged()
@@ -154,6 +153,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun setExerciseProgressBar(totalExerciseTime : Int){
+        //CountDownTimer uses milliseconds
         exerciseTimer = object : CountDownTimer((totalExerciseTime * 1000).toLong(),1000){
             override fun onTick(p0: Long) {
                 binding?.progressBarExercise?.max = totalExerciseTime
@@ -169,6 +169,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 if(currentExercise < exerciseList?.size!! - 1){
                     setUpRestView(restTime)
                 }else{
+                    //Close all the activities in the stack
                     finish()
                     startActivity(Intent(this@ExerciseActivity,FinishActivity::class.java))
                 }
