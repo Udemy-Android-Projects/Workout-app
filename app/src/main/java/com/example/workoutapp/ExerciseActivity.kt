@@ -68,6 +68,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         customDialog.setContentView(dialogBinding.root)
         //can not cancel dialog by clicking outside of it
         customDialog.setCanceledOnTouchOutside(false)
+
         dialogBinding.btnYes.setOnClickListener{
             //The activity to be closed must be specified
             this@ExerciseActivity.finish()

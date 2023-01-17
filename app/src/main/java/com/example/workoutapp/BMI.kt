@@ -18,6 +18,7 @@ class BMI : AppCompatActivity() {
 
     var binding : ActivityBmiBinding? = null
     private var currentView : String = METRIC_UNITS_VIEW
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBmiBinding.inflate(layoutInflater)
@@ -54,7 +55,6 @@ class BMI : AppCompatActivity() {
         }
         return isValid
     }
-
 
     private fun validateImperialUnits(): Boolean{
         var isValid = true
